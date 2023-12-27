@@ -1,15 +1,16 @@
-import { useNavigate } from "react-router-dom";
-import React from "react";
+import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
+import { Input } from "@mui/material";
 
 
 const UserForm = (props) => {
 
-   
+    const [id,setId] = useState(0)
+    const [name,setName] = useState("")
 
   return (
-    <div >
-      <div className="flex flex-col items-center justify-center mt-[10%] mx-auto">
+    <div className="pb-[100px]">
+      <div className="flex flex-col items-center justify-center pt-[10%] mx-auto">
         <div className="border bg-white shadow-xl p-8 rounded-lg text-center hover:shadow-[#87f8cd6d] hover:shadow-2xl">
           <h1 className="font-extrabold text-6xl mb-6 text-center">
             User Form
@@ -23,8 +24,8 @@ const UserForm = (props) => {
                 name="id"
                 className="w-[300px] mb-2"
                 placeholder="Enter ID"
-                value={""}
-                onChange={(e) => {}}
+                value={id < 1 ? "" : id}
+                //onChange={e => setId(e.target,value)}
                 variant="outlined"
               />
               <TextField
@@ -34,7 +35,7 @@ const UserForm = (props) => {
                 name="name"
                 className="w-[300px] mb-2 font-bold"
                 placeholder="Enter Name"
-                value={""}
+                value={name}
                 onChange={(e) => {}}
                 variant="outlined"
               />

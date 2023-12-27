@@ -3,34 +3,19 @@ import UserForm from "./userForm";
 import UsersTable from "./usersTable";
 
 const Users = () => {
-  const navigate = useNavigate();
-  const handleSeeListClick = () => {
-    // Use the id of the target section (in this case, "table")
-    const targetSection = document.getElementById("table");
-
-    // Scroll to the target section
-    if (targetSection) {
-      targetSection.scrollIntoView({ behavior: "smooth" });
-    }
-};
-
-    const handleAddUserClick = () => {
-        // Use the id of the target section (in this case, "table")
-        const targetSection = document.getElementById("addForm");
     
-        // Scroll to the target section
-        if (targetSection) {
-          targetSection.scrollIntoView({ behavior: "smooth" });
-        }
-  };
-
+  const navigate = useNavigate();
   
+  const usersData = [
+    {id: 1, name: "Sithija Karunasena"}
+  ];
   return (
-    <div>
-        <div id="addForm">
-      <UserForm/>
+    <div className="flex flex-col md:flex-row  ">
+        
+      <div id="addForm" className="w-[40%] m-auto">
+        <UserForm />
       </div>
-      <button
+      {/* <button
         className="mx-auto px-2 py-1 hover:scale-110 transition-all text-lg font-extrabold text-cyan-600 flex flex-col mt-5 hover:border-cyan-500 hover:border-2 rounded-full mb-[100%]"
         onClick={handleSeeListClick}
       >
@@ -41,9 +26,9 @@ const Users = () => {
         onClick={handleAddUserClick}
       >
         Add a User ⬆️
-      </button>
-      <div id="table">
-      <UsersTable />
+      </button> */}
+      <div id="table" className="w-[40%] m-auto">
+        <UsersTable rows={usersData} />
       </div>
 
       <div className="bottom-0 fixed right-0 mb-5 mr-5">
