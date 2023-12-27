@@ -9,7 +9,7 @@ function App() {
             Management<br/>
             System ⬇️<br/>
           </h1>
-          <button className="px-8 py-4 rounded-3xl text-white text-3xl bg-black hover:scale-110 transition-all ">
+          <button onClick={"/users"} className="px-8 py-4 rounded-3xl text-white text-3xl bg-black hover:scale-110 transition-all ">
             Users 🧤
           </button>
         </div>
