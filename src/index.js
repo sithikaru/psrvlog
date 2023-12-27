@@ -5,6 +5,7 @@ import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Users from './users';
+import UsersTable from './usersTable';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -12,8 +13,10 @@ root.render(
     <Routes>
       <Route path='/' element={<App/>} />
       <Route path='/users' element={<Users/>} />
+      <Route path='/table' element={<UsersTable/>} />
     </Routes>
   </BrowserRouter>
+  
 );
 
 // If you want to start measuring performance in your app, pass a function
