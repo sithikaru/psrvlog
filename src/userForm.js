@@ -1,12 +1,31 @@
 import React, { useState } from "react";
 import TextField from "@mui/material/TextField";
-import { Input } from "@mui/material";
+import addUserData from "./users";
 
+const UserForm = ({ onAddUser }) => {
+  const [id, setId] = useState("");
+  const [name, setName] = useState("");
 
-const UserForm = (props) => {
+  const handleAddUserClick = () => {
+    // Validate input (you can add more validation if needed)
+    if (!id || !name) {
+      alert("Please enter both ID and Name.");
+      return;
+    }
 
-    const [id,setId] = useState(0)
-    const [name,setName] = useState("")
+    // Create a new user object
+    const newUser = {
+      id: parseInt(id),
+      name: name,
+    };
+
+    // Call the parent component's callback function
+    onAddUser(newUser);
+
+    // Clear the input fields
+    setId("");
+    setName("");
+  };
 
   return (
     <div className="pb-[100px]">
@@ -25,7 +44,7 @@ const UserForm = (props) => {
                 className="w-[300px] mb-2"
                 placeholder="Enter ID"
                 value={id < 1 ? "" : id}
-                //onChange={e => setId(e.target,value)}
+                onChange={(e) => setId(e.target.value)}
                 variant="outlined"
               />
               <TextField
@@ -36,21 +55,21 @@ const UserForm = (props) => {
                 className="w-[300px] mb-2 font-bold"
                 placeholder="Enter Name"
                 value={name}
-                onChange={(e) => {}}
+                onChange={(e) => setName(e.target.value)}
                 variant="outlined"
               />
             </div>
           </div>
           <div>
-            <button className="px-8 py-4 rounded-3xl text-white text-3xl bg-black hover:scale-110 transition-all ">
+            <button
+              onClick={handleAddUserClick}
+              className="px-8 py-4 rounded-3xl text-white text-3xl bg-black hover:scale-110 transition-all "
+            >
               Add ✅
             </button>
           </div>
         </div>
-        
       </div>
-
-      
     </div>
   );
 };

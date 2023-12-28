@@ -7,7 +7,12 @@ import TableContainer from "@mui/material/TableContainer";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
 
-const UsersTable = ({ rows }) => {
+const UsersTable = ({ rows, onDelete }) => {
+
+    const handleDelete = (id) => {
+        onDelete(id);
+      };
+
   return (
     <div>
       <div className="flex items-center justify-center">
@@ -38,6 +43,7 @@ const UsersTable = ({ rows }) => {
                       </TableCell>
                       <TableCell>
                         <button
+                        onClick={() => handleDelete(row.id)}
                           className="px-2 py-1 rounded-3xl text-white text-md font-semibold bg-orange-700 opacity-70 hover:scale-110 hover:opacity-100 transition-all "
                         >
                         Delete 🚮
