@@ -5,7 +5,9 @@ import UsersTable from "./usersTable";
 
 const Users = () => {
   const navigate = useNavigate();
-  const [usersData, setUsersData] = useState([{ id: 1, name: "Sithija Karunasena" }]);
+  const [usersData, setUsersData] = useState([
+    { "id": 1, "name": "John Smith" },
+]);
 
   const addUserData = (newUser) => {
     // Add the new user to the usersData array
@@ -20,11 +22,11 @@ const Users = () => {
 
   return (
     <div className="flex flex-col md:flex-row  ">
-      <div id="addForm" className="w-[40%] m-auto">
+      <div id="addForm" className="w-[40%] mx-auto">
         <UserForm onAddUser={addUserData} />
       </div>
 
-      <div id="table" className="w-[40%] m-auto">
+      <div id="table" className="w-[40%] mx-auto mt-[60px] mb-[100px]">
         <UsersTable rows={usersData} onDelete={deleteUserData} />
       </div>
 
